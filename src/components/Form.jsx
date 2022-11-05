@@ -7,21 +7,22 @@ const Form = () =>  {
     firstName: "",
     lastName: "",
     email: "",
-    message: ""
+    message: "",
+    isAgreed: true
    };
   const [formData, setFormData] = useState(values);
-  const [firstNameError, setFirstNameError] = useState(false)
-  const [lastNameError, setLastNameError] = useState(false)
-  const [emailError, setEmailError] = useState(false)
-  const [messageError, setMessageError] = useState(false)
+  const [firstNameError, setFirstNameError] = useState()
+  const [lastNameError, setLastNameError] = useState()
+  const [emailError, setEmailError] = useState()
+  const [messageError, setMessageError] = useState()
 
 
 
 const handleChange = (event) => {
-    const {name, value} = event.target
+    const {name, value, type, checked} = event.target
     setFormData(prevFormData => ({
         ...prevFormData,
-        [name]: value
+        [name]: type === "checkbox" ? checked : value
     }))
 }
 
@@ -54,7 +55,7 @@ const onSubmit = (e) => {
   
 }
 
-
+console.log(formData.isAgreed)
 
   return (
         <form onSubmit={onSubmit}> 
@@ -118,7 +119,8 @@ const onSubmit = (e) => {
 
             <input 
             type="checkbox" 
-            id="agree" 
+            id="agree"
+            checked={formData.isAgreed} 
             />
             <label htmlFor="agree">You agree to providing your data to Fatima Adekunle-logun who may contact you</label>
 
