@@ -1,5 +1,6 @@
 * {
   box-sizing: border-box;
+  font-family: var(--font-family);
 }
 
 :root {
@@ -190,7 +191,7 @@ textarea {
   border: 1px solid #101828;
   padding: 1em;
   display: block;
-  margin-bottom: 1.9em;
+  margin-bottom: 3em;
   outline: none;
 }
 
@@ -199,6 +200,7 @@ textarea::placeholder{
   font-size: 1.1em;
   font-family: var(--font-family);
   letter-spacing: 1px;
+  color: #101828
 }
 
 input:focus,
@@ -241,14 +243,10 @@ input[type="checkbox"] {
   margin-top: 2em;
 }
 
-/* input[type="text"], input[type="email"] {
-  margin-bottom: 15px;
-  height: 30px;
-  text-indent: 10px;
-  border: 1px solid #444;
-  border-radius: 5px;
-  display: block;
-} */
+.error {
+  margin-top: -25px;
+  color: #F83F23
+}
 
 
 
@@ -258,7 +256,7 @@ input[type="checkbox"] {
     justify-content: space-between;
     align-items: center;
     margin-bottom: 0.5em;
-    /* width: 50% */
+
   }
 
   .first-name,

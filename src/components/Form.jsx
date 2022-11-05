@@ -1,93 +1,131 @@
 import React from 'react'
-import { useState
- } from 'react'
-export default function Form() {
-const [error, setError] = useState("")
-const [border, setBorder] = useState("")
-const [formData, setFormData] = useState({
+import { useState, useEffect } from 'react'
+
+
+const Form = () =>  {
+  const values = { 
     firstName: "",
     lastName: "",
     email: "",
     message: ""
-})
+   };
+  const [formData, setFormData] = useState(values);
+  const [firstNameError, setFirstNameError] = useState(false)
+  const [lastNameError, setLastNameError] = useState(false)
+  const [emailError, setEmailError] = useState(false)
+  const [messageError, setMessageError] = useState(false)
 
-const onSubmit = (e) => {
-    e.preventDefault()
-    
 
-}
 
 const handleChange = (event) => {
     const {name, value} = event.target
-
-    setFormData(prevForm => ({
-        ...prevForm,
+    setFormData(prevFormData => ({
+        ...prevFormData,
         [name]: value
     }))
 }
 
+const onSubmit = (e) => {
+  e.preventDefault();
+
+  formData.firstName.length === 0 ? setFirstNameError(true) : setFirstNameError(false)
+
+  formData.lastName.length === 0 ? setLastNameError(true) : setLastNameError(false)
+
+  formData.email.length === 0 ? setEmailError(true) : setEmailError(false)
+
+  formData.message.length === 0 ?setMessageError(true) : setMessageError(false)
+    
+  
+
+  if (firstNameError === false && lastNameError === false && emailError === false && messageError === false) {
+    alert("Message sent successfully")
+
+    setFormData(prevFormData => ({
+      ...prevFormData,
+      firstName: "",
+      lastName: "",
+      email: "",
+      message: ""
+
+  }))
+  }
+
+  
+}
+
+
+
   return (
-    <form onSubmit={onSubmit}> 
-        <div className="names">
-            <div className="first-name">
-                <label htmlFor='firstName' className='label'>First Name</label>
-                <input
-                id='first_name'
-                type="text"
-                placeholder='Enter your first name'
-                name="firstName"
-                value={formData.firstName}
-                onChange={handleChange}
-                required/>
-                <small className='error-message'>{error}</small>
+        <form onSubmit={onSubmit}> 
+            <div className="names">
+                <div className="first-name">
+                    <label htmlFor='firstName' className='label'>First Name</label>
+                    <input
+                    id='first_name'
+                    type="text"
+                    placeholder='Enter your first name'
+                    name="firstName"
+                    value={formData.firstName}
+                    onChange={handleChange}
+                    style={firstNameError === true ? {border: "1px solid red"} : {}}
+                    />
+                    <p className='error'>{firstNameError === true? "Please enter first name" : " "}</p>
+                </div>
+                
+                
+                <div className="last-name">
+                    <label htmlFor='lastName' className='label'>Last Name</label>
+                    <input
+                    id='last_name'
+                    type="text"
+                    placeholder='Enter your last name'
+                    name="lastName"
+                    value={formData.lastName}
+                    onChange={handleChange}
+                    style={lastNameError === true ? {border: "1px solid red"} : {}}
+                    />
+                    <p className='error'>{lastNameError ? "Please enter a last name" : ""}</p>
+                    
+                    
+                </div>
             </div>
-            <div className="last-name">
-                <label htmlFor='lastName' className='label'>Last Name</label>
-                <input
-                style={{border: border}}
-                id='last_name'
-                type="text"
-                placeholder='Enter your last name'
-                name="lastName"
-                value={formData.lastName}
-                onChange={handleChange}
-                required/>
-                {/* <small className='error'>{`${error} last name`}</small> */}
-            </div>
-        </div>
 
-        <label htmlFor='lastName' className='label'>Email</label>
-        <input
-        id='email'
-        type="email"
-        placeholder='yourname@company.com'
-        name="email"
-        value={formData.email}
-        onChange={handleChange}
-        required/>
-        {/* <small className='error'>{`${error} message`}</small> */}
-        
+            <label htmlFor='email' className='label'>Email</label>
+            <input
+            id='email'
+            type="email"
+            placeholder='yourname@company.com'
+            name="email"
+            value={formData.email}
+            onChange={handleChange}
+            style={emailError ? {border: "1px solid #F83F23"} : {}}
+            />
+            <p className='error'>{emailError === true? "Please enter an email address" : ""}</p>
 
-        <label htmlFor='lastName' className='label'>Message</label>
-        <textarea
-        id='message'
-        type="text"
-        placeholder="Send me a message and i'll reply you as soon as possible..."
-        name="message"
-        rows={8}
-        value={formData.message}
-        onChange={handleChange}
-        required/>
+            <label htmlFor='message' className='label'>Message</label>
+            <textarea
+            id='message'
+            type="text"
+            placeholder="Send me a message and i'll reply you as soon as possible..."
+            name="message"
+            rows={8}
+            value={formData.message}
+            onChange={handleChange}
+            style={messageError? {border: "1px solid #F83F23"} : {}}
+            />
+            <p className='error'>{messageError ? "Please enter a message" : ""}</p>
 
-        <input 
+            <input 
             type="checkbox" 
             id="agree" 
-        />
-        <label htmlFor="agree">You agree to providing your data to Wonuola who may contact you</label>
+            />
+            <label htmlFor="agree">You agree to providing your data to Fatima Adekunle-logun who may contact you</label>
 
 
-        <button id='btn__submit'>Send Message</button>
-    </form>
-
+            <button id='btn__submit'>Send Message</button>
+        </form>
   )
 }
+
+export default Form
