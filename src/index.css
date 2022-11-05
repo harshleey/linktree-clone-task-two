@@ -8,6 +8,10 @@
   line-height: 24px;
 }
 
+body {
+  font-family: var(--font-family);
+}
+
 ul li{
   list-style: none;
 }
@@ -26,7 +30,7 @@ a {
   width: 90%;
   display: flex;
   justify-content: flex-end;
-  padding: 2em 0.5em; 
+  padding: 1em 0.5em ; 
 }
 
 #share-icon {
