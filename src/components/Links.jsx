@@ -9,7 +9,7 @@ export default function Links() {
   return (
     <section className="links-section">
         {links.map(link => <Button key={link.id} link={link} />)}
-        <a href="" id="contact" className="button"><Link to="/contact">Contact Me</Link></a>
+        <Link to="/contact" id="contact" className="button">Contact Me</Link>
     </section>
   )
 }
