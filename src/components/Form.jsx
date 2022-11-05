@@ -8,7 +8,7 @@ const Form = () =>  {
     lastName: "",
     email: "",
     message: "",
-    isAgreed: true
+    // isAgreed: true
    };
   const [formData, setFormData] = useState(values);
   const [firstNameError, setFirstNameError] = useState()
@@ -55,7 +55,7 @@ const onSubmit = (e) => {
   
 }
 
-console.log(formData.isAgreed)
+// console.log(formData.isAgreed)
 
   return (
         <form onSubmit={onSubmit}> 
@@ -120,7 +120,7 @@ console.log(formData.isAgreed)
             <input 
             type="checkbox" 
             id="agree"
-            checked={formData.isAgreed} 
+            // checked={formData.isAgreed} 
             />
             <label htmlFor="agree">You agree to providing your data to Fatima Adekunle-logun who may contact you</label>
 
