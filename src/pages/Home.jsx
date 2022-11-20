@@ -1,18 +1,20 @@
 import React from 'react'
-import Header from "../components/Header"
-import Profile from '../components/Profile'
-import Links from '../components/Links'
-import Social from '../components/Social'
-import Footer from '../components/Footer'
+import Subscription from '../components/Subscription'
+// import Header from "../components/Header"
+// import Profile from '../components/Profile'
+// import Links from '../components/Links'
+// import Social from '../components/Social'
+// import Footer from '../components/Footer'
 
 export default function Home() {
   return (
     <div className="container">
-      <Header/>
+      <Subscription/>
+      {/* <Header/>
       <Profile/>
       <Links/>
       <Social/>
-      <Footer/>
+      <Footer/> */}
     </div>
   )
 }

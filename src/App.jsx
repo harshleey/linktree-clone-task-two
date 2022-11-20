@@ -1,18 +1,28 @@
-import {Routes, Route, Navigate} from "react-router-dom";
+import {Routes, Route} from "react-router-dom";
 import Home from './pages/Home';
-import Contact from "./pages/Contact";
+import SubFeatures from "./pages/SubFeatures";
+import { useState } from "react";
+// import Contact from "./pages/Contact";
 
 
 
 
 function App() {
 
+  const [frequencyMode, setFrequencyMode] = useState(true)
+    
+    function toggleFrequencyMode() {
+        setFrequencyMode(prevMode => !prevMode)
+    }
+
   return (
     <div className='App'>
       <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="contact" element={<Contact />} />
-          <Route path="*" element={<Navigate to="/" />} />
+          <Route path="/sub-features" element={<SubFeatures 
+          frequencyMode={frequencyMode} 
+          toggleFrequencyMode={toggleFrequencyMode}/>} />
+          {/* <Route path="/contact" element={<Contact />} /> */}
       </Routes>
     </div>
   )
