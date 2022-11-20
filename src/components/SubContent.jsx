@@ -2,8 +2,17 @@ import React from 'react'
 import location from "../assets/location.svg"
 import ranking from "../assets/ranking.svg"
 import volume from "../assets/volume-high.svg"
+import { useState } from 'react'
 
 export default function SubContent() {
+    const [basicActive, setBasicActive] = useState(false);
+    const [standardActive, setStandardActive] = useState(false);
+
+  const basicClick = () => {
+    // 👇️ toggle
+    setBasicActive(current => !current);
+  };
+
   return (
     
         <div className="subscription-content">

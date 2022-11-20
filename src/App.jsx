@@ -12,7 +12,8 @@ function App() {
   const [frequencyMode, setFrequencyMode] = useState(true)
     
     function toggleFrequencyMode() {
-        setFrequencyMode(prevMode => !prevMode)
+        // setFrequencyMode(prevMode => !prevMode)
+        console.log(frequencyMode)
     }
 
   return (

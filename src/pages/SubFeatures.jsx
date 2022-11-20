@@ -9,6 +9,11 @@ import { useState } from 'react'
 
 export default function SubFeatures({toggleFrequencyMode}) {
   const [toggleSubscribe, setToggleSubcribe] = useState(false)
+
+  const handleSubscribe = () => {
+    setToggleSubcribe(prevSubscribe => !prevSubscribe)
+  }
+
   return (
     <div className="sub-features subscription-section">
       <SubHeading/>
@@ -92,26 +97,23 @@ export default function SubFeatures({toggleFrequencyMode}) {
         </div>
 
         <div className="feature-bottom-links">
-        <button className="btn subscribe">
-          Subscribe
-        </button>
-        <Link to="/" id="sub-features" className="accent">Cancel or change subscription plan</Link>
+          <button onClick={handleSubscribe}  className="btn subscribe">
+            Subscribe
+          </button>
+          <Link to="/" id="sub-features" className="accent">Cancel or change subscription plan</Link>
 
         </div>
-        
       </div>
 
-      <div className="subscribe-modal">
+      <div onClick={() => {
+        setToggleSubcribe(!toggleSubscribe)
+      }} className={`subscribe-modal ${toggleSubscribe ? "active-modal" : ""}`}>
        <div className="inner-subscribe">
         <img src={success} alt="" />
         <h5>Success!</h5>
         <p></p>
         <button className="btn"><Link to="/" id="sub-features" className="btn">Proceed to payment</Link></button>
-        
-
-
        </div>
-
       </div>
     </div>
   )

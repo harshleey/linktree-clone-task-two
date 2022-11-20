@@ -333,13 +333,18 @@ a {
   background-color: rgba(0, 0, 0, 0.3);
   min-height: 100vh;
   left: 0;
-  top: 0;
-  /* top: 100vh; */
+  /* top: 0; */
+  top: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column; 
 } 
+
+.active-modal {
+  top: 0;
+  z-index: 10;
+}
 
 .inner-subscribe {
   background-color: #fff;
@@ -547,7 +552,7 @@ nav.dark .toggler-dark {
   color: #FFFFFF;
 }
 
-nav.dark .toggler--slider {
+.toggler--slider-end {
   justify-content: flex-start;
 }
 
