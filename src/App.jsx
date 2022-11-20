@@ -9,20 +9,13 @@ import { useState } from "react";
 
 function App() {
 
-  const [frequencyMode, setFrequencyMode] = useState(true)
-    
-    function toggleFrequencyMode() {
-        // setFrequencyMode(prevMode => !prevMode)
-        console.log(frequencyMode)
-    }
 
   return (
     <div className='App'>
       <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/sub-features" element={<SubFeatures 
-          frequencyMode={frequencyMode} 
-          toggleFrequencyMode={toggleFrequencyMode}/>} />
+          />} />
           {/* <Route path="/contact" element={<Contact />} /> */}
       </Routes>
     </div>

@@ -7,16 +7,23 @@ import success from "../assets/success-circle.svg"
 import { useState } from 'react'
 
 
-export default function SubFeatures({toggleFrequencyMode}) {
+export default function SubFeatures() {
   const [toggleSubscribe, setToggleSubcribe] = useState(false)
 
   const handleSubscribe = () => {
     setToggleSubcribe(prevSubscribe => !prevSubscribe)
   }
 
+  const [isActive, setIsActive] = useState(false);
+
+  const handleClick = () => {
+    // 👇️ toggle
+    setIsActive(current => !current);
+  };
+
   return (
     <div className="sub-features subscription-section">
-      <SubHeading/>
+      <SubHeading onBasic={handleClick}/>
 
       <div className="features">
         <h2 className='feature-heading'>Complete features</h2>
@@ -111,7 +118,7 @@ export default function SubFeatures({toggleFrequencyMode}) {
        <div className="inner-subscribe">
         <img src={success} alt="" />
         <h5>Success!</h5>
-        <p></p>
+        <p>You have successfully made a basic subscription of $0.00!</p>
         <button className="btn"><Link to="/" id="sub-features" className="btn">Proceed to payment</Link></button>
        </div>
       </div>

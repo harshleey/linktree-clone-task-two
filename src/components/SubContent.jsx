@@ -4,7 +4,7 @@ import ranking from "../assets/ranking.svg"
 import volume from "../assets/volume-high.svg"
 import { useState } from 'react'
 
-export default function SubContent() {
+export default function SubContent({onBasic}) {
     const [basicActive, setBasicActive] = useState(false);
     const [standardActive, setStandardActive] = useState(false);
 
@@ -46,11 +46,15 @@ export default function SubContent() {
             </div>
 
             <div className="plans">
-                    <div 
+                    <div style={{
+                        backgroundColor: basicActive ? '#714dd9' : '',
+                        color: basicActive ? 'white' : '',
+                        }}
+                        onClick={basicClick}
                        className="each-plan basic">
                         <p className='plan-name'>Basic</p>
                         <p
-                         className='plan-price'><span className='price-bold'>$0.00</span>/mt</p>
+                         className={`plan-price ${basicActive ? "white" : ""}`}><span className='price-bold'>$0.00</span>/mt</p>
                     </div>
 
                     <div className="each-plan standard">

@@ -318,6 +318,7 @@ a {
 
 
 
+
 /* SUBSCRIPTION PAGE */
 
 .subscription-section {
@@ -357,7 +358,11 @@ a {
 }
 
 .inner-subscribe > h5 {
-  margin-bottom: 1em;
+  margin-bottom: 2em;
+}
+
+.inner-subscribe > p {
+  margin-bottom: 2.5em;
 }
 
 .sub-heading {
@@ -413,7 +418,7 @@ a {
   cursor: pointer;
 }
 
-.each-plan .plan-price {
+.plan-price {
   color: #714dd9;
 }
 
@@ -578,4 +583,8 @@ nav.dark .toggler-dark {
   .each-feature {
     width: 32%;
   }
+}
+
+.white {
+  color: #fff;
 }
